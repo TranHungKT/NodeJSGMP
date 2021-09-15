@@ -1,0 +1,30 @@
+{
+  "name": "week01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "task1": "node task1/index.js",
+    "task2": "node task2/index.js",
+    "task3.1": "node build/src/task3.1.js",
+    "task3.2": "node build/src/task3.2.js",
+    "build-babel": "babel ./task3 -d ./build/src",
+    "build": "npm run build-babel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "csv-parser": "^3.0.0",
+    "csvtojson": "^2.0.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6"
+  }
+}
