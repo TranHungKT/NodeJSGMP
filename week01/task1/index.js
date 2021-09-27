@@ -5,8 +5,12 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question('Please enter something ', value => {
+
+const main = ( ) =>  rl.question('Please enter something ', value => {
   console.log(value);
   console.log(value.split('').reverse().join(''));
-  rl.close();
+  main()
 });
+
+main()
+
