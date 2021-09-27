@@ -125,6 +125,27 @@ app.delete('/user', async (req: Request<{}, {}, {id: string}>, res, next) => {
   return res.send('Success');
 });
 
+app.get(
+  '/user',
+  (
+    req: Request<{}, {}, {}, {loginSubstring: string; limit: string}>,
+    res,
+    next,
+  ) => {
+    const {loginSubstring, limit} = req.query;
+    const userList: User[] = [];
+    let count = 0;
+    userData.filter(user => {
+      if (count < parseInt(limit) && user.login.includes(loginSubstring)) {
+        userList.push(user);
+        count++;
+      }
+    });
+
+    res.send(userList);
+  },
+);
+
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   return res.status(400).send({
     error: [
