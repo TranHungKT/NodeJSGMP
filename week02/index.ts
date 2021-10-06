@@ -147,7 +147,7 @@ app.get(
 );
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  return res.status(400).send({
+  return res.status(401).send({
     error: [
       {
         message: err,
