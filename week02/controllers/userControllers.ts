@@ -1,13 +1,6 @@
 import {Request, Response, NextFunction} from 'express';
 
-import {
-  User,
-  UserSchema,
-  UserDeleteSchema,
-  UserInterface,
-} from '../models/Users';
-
-import {Op} from 'sequelize';
+import {UserSchema, UserDeleteSchema, UserInterface} from '../models/Users';
 
 import {
   findAllUser,
