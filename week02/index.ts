@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
   res.send({userData});
 });
 
-app.get('/user/:id', (req, res, next) => {
+app.get('/users/:id', (req, res, next) => {
   const {id} = req.params;
 
   const userIndex = checkUserId(id);
@@ -71,7 +71,7 @@ app.get('/user/:id', (req, res, next) => {
   return res.json({data: userData[userIndex]});
 });
 
-app.post('/user', async (req: Request<{}, {}, User>, res, next) => {
+app.post('/users', async (req: Request<{}, {}, User>, res, next) => {
   try {
     await UserSchema.validateAsync(req.body);
   } catch (error: any) {
@@ -89,7 +89,7 @@ app.post('/user', async (req: Request<{}, {}, User>, res, next) => {
   return res.send('Success');
 });
 
-app.put('/user', async (req: Request<{}, {}, User>, res, next) => {
+app.put('/users', async (req: Request<{}, {}, User>, res, next) => {
   try {
     await UserSchema.validateAsync(req.body);
   } catch (error: any) {
@@ -107,7 +107,7 @@ app.put('/user', async (req: Request<{}, {}, User>, res, next) => {
   return res.send('Success');
 });
 
-app.delete('/user', async (req: Request<{}, {}, {id: string}>, res, next) => {
+app.delete('/users', async (req: Request<{}, {}, {id: string}>, res, next) => {
   try {
     await UserDeleteSchema.validateAsync(req.body);
   } catch (error: any) {
@@ -126,7 +126,7 @@ app.delete('/user', async (req: Request<{}, {}, {id: string}>, res, next) => {
 });
 
 app.get(
-  '/user',
+  '/users',
   (
     req: Request<{}, {}, {}, {loginSubstring: string; limit: string}>,
     res,
