@@ -81,8 +81,8 @@ export const editUserController = async (
     await UserSchema.validateAsync(req.body);
 
     const user = await updateUserById(req.body);
-
-    if (!user) {
+    console.log(user);
+    if (user[0] === 0) {
       return next('Invalid id');
     }
 
