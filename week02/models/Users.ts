@@ -4,7 +4,7 @@ import {Model, DataTypes} from 'sequelize';
 import sequelize from '../configs/initDB';
 
 export const UserSchema = joi.object({
-  local_ID: joi.string().required(),
+  // id: joi.string().required(),
   login: joi.string().required(),
   password: joi
     .string()
@@ -15,11 +15,11 @@ export const UserSchema = joi.object({
 });
 
 export const UserDeleteSchema = joi.object({
-  local_ID: joi.string().required(),
+  id: joi.string().required(),
 });
 
 export interface UserInterface {
-  local_ID: string;
+  id: string;
   login: string;
   password: string;
   age: number;
@@ -29,7 +29,6 @@ export interface UserInterface {
 export class User extends Model {}
 User.init(
   {
-    local_ID: DataTypes.STRING,
     login: DataTypes.STRING,
     password: DataTypes.STRING,
     age: DataTypes.INTEGER,

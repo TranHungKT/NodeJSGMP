@@ -1,9 +1,4 @@
-import {
-  User,
-  UserSchema,
-  UserDeleteSchema,
-  UserInterface,
-} from '../models/Users';
+import {User, UserInterface} from '../models/Users';
 
 import {Op} from 'sequelize';
 
@@ -17,11 +12,24 @@ export const findAllUser = async () => {
   }
 };
 
-export const findAllUserByLocalId = async (local_ID: string) => {
+export const findAllUserByLogin = async (login: string) => {
   try {
     const user = await User.findAll({
       where: {
-        local_ID: local_ID,
+        login: login,
+      },
+    });
+    return user;
+  } catch (error) {
+    throw new Error();
+  }
+};
+
+export const findAllUserById = async (id: string) => {
+  try {
+    const user = await User.findAll({
+      where: {
+        id: id,
       },
     });
     return user;
@@ -39,13 +47,13 @@ export const createNewUser = async (userData: UserInterface) => {
   }
 };
 
-export const updateUserById = async (userData: UserInterface) => {
+export const updateUserByLogin = async (userData: UserInterface) => {
   try {
     const user = await User.update(
       {...userData},
       {
         where: {
-          local_ID: userData.local_ID,
+          login: userData.login,
         },
       },
     );
@@ -55,13 +63,13 @@ export const updateUserById = async (userData: UserInterface) => {
   }
 };
 
-export const deleteUserById = async (local_ID: string) => {
+export const deleteUserById = async (id: string) => {
   try {
     const user = await User.update(
       {isDeleted: 1},
       {
         where: {
-          local_ID: local_ID,
+          id: id,
         },
       },
     );

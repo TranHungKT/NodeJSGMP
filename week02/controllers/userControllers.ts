@@ -4,11 +4,12 @@ import {UserSchema, UserDeleteSchema, UserInterface} from '../models/Users';
 
 import {
   findAllUser,
-  findAllUserByLocalId,
-  updateUserById,
+  findAllUserByLogin,
+  updateUserByLogin,
   createNewUser,
   deleteUserById,
   getLimitUser,
+  findAllUserById,
 } from '../services/UserServices';
 
 export const getUsersController = async (
@@ -32,7 +33,7 @@ export const getUserByIdController = async (
   try {
     const {id} = req.params;
 
-    const user = await findAllUserByLocalId(id);
+    const user = await findAllUserById(id);
     if (!user) {
       return next('Can not find user');
     }
@@ -51,10 +52,10 @@ export const createNewUserController = async (
   try {
     await UserSchema.validateAsync(req.body);
 
-    const user = await findAllUserByLocalId(req.body.local_ID);
+    const user = await findAllUserByLogin(req.body.login);
 
     if (user.length !== 0) {
-      return next('Invalid id');
+      return next('Invalid login');
     }
 
     await createNewUser(req.body);
@@ -73,10 +74,10 @@ export const editUserController = async (
   try {
     await UserSchema.validateAsync(req.body);
 
-    const user = await updateUserById(req.body);
-    console.log(user);
+    const user = await updateUserByLogin(req.body);
+
     if (user[0] === 0) {
-      return next('Invalid id');
+      return next('Invalid login');
     }
 
     return res.send('Success');
@@ -86,7 +87,7 @@ export const editUserController = async (
 };
 
 export const deleteUserController = async (
-  req: Request<{}, {}, {local_ID: string}>,
+  req: Request<{}, {}, {id: string}>,
   res: Response,
   next: NextFunction,
 ) => {
@@ -96,7 +97,7 @@ export const deleteUserController = async (
     return next(error.message);
   }
 
-  const user = await deleteUserById(req.body.local_ID);
+  const user = await deleteUserById(req.body.id);
 
   if (!user) {
     return next('Invalid id');
