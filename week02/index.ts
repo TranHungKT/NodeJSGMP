@@ -1,6 +1,6 @@
 import express, {Request, Response, NextFunction} from 'express';
 import routes from './routes';
-import './initDB';
+import './configs/initDB';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

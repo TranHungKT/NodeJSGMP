@@ -1,7 +1,7 @@
 import joi from 'joi';
 import {Model, DataTypes} from 'sequelize';
 
-import sequelize from '../initDB';
+import sequelize from '../configs/initDB';
 
 export const UserSchema = joi.object({
   local_ID: joi.string().required(),

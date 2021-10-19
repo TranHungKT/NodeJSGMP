@@ -9,7 +9,7 @@ import {
   createNewUser,
   deleteUserById,
   getLimitUser,
-} from '../services/queryServices';
+} from '../services/UserServices';
 
 export const getUsersController = async (
   req: Request,
