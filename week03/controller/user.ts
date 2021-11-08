@@ -67,14 +67,14 @@ export const createNewUserController = async (
 };
 
 export const editUserController = async (
-  req: Request<{}, {}, UserInterface>,
+  req: Request<{id: string}, {}, Omit<UserInterface, 'id'>>,
   res: Response,
   next: NextFunction,
 ) => {
   try {
     await UserSchema.validateAsync(req.body);
-
-    const user = await updateUserByLogin(req.body);
+    const id = req.params.id;
+    const user = await updateUserByLogin({...req.body, id});
 
     if (user[0] === 0) {
       return next('Invalid login');
@@ -87,17 +87,11 @@ export const editUserController = async (
 };
 
 export const deleteUserController = async (
-  req: Request<{}, {}, {id: string}>,
+  req: Request<{id: string}, {}, {}>,
   res: Response,
   next: NextFunction,
 ) => {
-  try {
-    await UserDeleteSchema.validateAsync(req.body);
-  } catch (error: any) {
-    return next(error.message);
-  }
-
-  const user = await deleteUserById(req.body.id);
+  const user = await deleteUserById(req.params.id);
 
   if (!user) {
     return next('Invalid id');

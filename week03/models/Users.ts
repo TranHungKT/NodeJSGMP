@@ -4,7 +4,6 @@ import {Model, DataTypes} from 'sequelize';
 import sequelize from '../configs/initDB';
 
 export const UserSchema = joi.object({
-  // id: joi.string().required(),
   login: joi.string().required(),
   password: joi
     .string()
