@@ -1,6 +1,7 @@
 import {User, UserInterface} from '../models/Users';
 
 import {Op} from 'sequelize';
+import {GroupUserModel} from '../models/GroupUser';
 
 export const findAllUser = async () => {
   try {
@@ -73,6 +74,15 @@ export const deleteUserById = async (id: string) => {
         },
       },
     );
+    const userGroupRelations = await GroupUserModel.findAll({
+      where: {
+        UserId: id,
+      },
+    });
+    userGroupRelations.forEach((userGroupRelation: any) => {
+      userGroupRelation?.destroy();
+    });
+    return;
     return user;
   } catch (error) {
     throw new Error();

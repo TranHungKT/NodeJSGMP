@@ -1,5 +1,6 @@
+import {Transaction} from 'sequelize/types';
 import {Group, GroupInterface} from '../models/Groups';
-
+import {GroupUserModel} from '../models/GroupUser';
 export const findAllGroup = async () => {
   try {
     const groups = await Group.findAll();
@@ -70,6 +71,47 @@ export const deleteGroupById = async (id: string) => {
       },
     });
     group?.destroy();
+
+    const userGroupRelations = await GroupUserModel.findAll({
+      where: {
+        UserId: id,
+      },
+    });
+    userGroupRelations.forEach((userGroupRelation: any) => {
+      userGroupRelation?.destroy();
+    });
+    return;
+  } catch (error) {
+    throw new Error();
+  }
+};
+
+export const addUserToGroupByIds = async (
+  id: string,
+  userIds: string[],
+  t: Transaction,
+) => {
+  try {
+    const groupUsers = userIds.map(async (userId: string) => {
+      const groupUser = await GroupUserModel.findOne({
+        where: {
+          groupId: id,
+          userId: userId,
+        },
+      });
+      if (!groupUser) {
+        await GroupUserModel.create(
+          {
+            groupId: id,
+            userId: userId,
+          },
+          {transaction: t},
+        );
+      }
+    });
+
+    await Promise.all(groupUsers);
+    return;
   } catch (error) {
     throw new Error();
   }

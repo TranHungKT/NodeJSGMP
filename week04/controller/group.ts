@@ -2,6 +2,8 @@ import {Request, Response, NextFunction} from 'express';
 
 import {Group, GroupInterface, GroupSchema} from '../models/Groups';
 
+import sequelize from '../configs/initDB';
+
 import {
   findAllGroup,
   findAllGroupById,
@@ -9,6 +11,7 @@ import {
   createNewGroup,
   updateGroupById,
   deleteGroupById,
+  addUserToGroupByIds,
 } from '../services/GroupServices';
 
 export const getGroups = async (
@@ -93,6 +96,24 @@ export const deleteGroup = async (
   try {
     await deleteGroupById(req.params.id);
 
+    return res.send('Success');
+  } catch (error) {
+    return next((error as Error).message);
+  }
+};
+
+export const addUserToGroups = async (
+  req: Request<{id: string}, {}, {userIds: string[]}>,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    console.log('asd');
+    const {id} = req.params;
+    const {userIds} = req.body;
+    await sequelize.transaction(async t => {
+      await addUserToGroupByIds(id, userIds, t);
+    });
     return res.send('Success');
   } catch (error) {
     return next((error as Error).message);
