@@ -5,6 +5,7 @@ import {Group, GroupInterface, GroupSchema} from '../models/Groups';
 import {
   findAllGroup,
   findAllGroupById,
+  findAllGroupByName,
   createNewGroup,
   updateGroupById,
   deleteGroupById,
@@ -43,14 +44,14 @@ export const getGroupById = async (
 };
 
 export const createNewGroupById = async (
-  req: Request<{}, {}, GroupInterface>,
+  req: Request<{}, {}, Omit<GroupInterface, 'id'>>,
   res: Response,
   next: NextFunction,
 ) => {
   try {
     await GroupSchema.validateAsync(req.body);
 
-    const group = await findAllGroupById(req.body.id);
+    const group = await findAllGroupByName(req.body.name);
 
     if (group.length !== 0) {
       return next('Invalid id');

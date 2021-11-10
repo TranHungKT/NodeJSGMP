@@ -1,13 +1,12 @@
-import {Group, GroupInterface, GroupSchema} from '../models/Groups';
-
-import {Op} from 'sequelize';
+import {Group, GroupInterface} from '../models/Groups';
 
 export const findAllGroup = async () => {
   try {
     const groups = await Group.findAll();
-
+    console.log('LOLO');
     return groups;
   } catch (error) {
+    console.log('CAC', error);
     throw new Error();
   }
 };
@@ -25,7 +24,20 @@ export const findAllGroupById = async (id: string) => {
   }
 };
 
-export const createNewGroup = async (groupData: GroupInterface) => {
+export const findAllGroupByName = async (name: string) => {
+  try {
+    const group = await Group.findAll({
+      where: {
+        name: name,
+      },
+    });
+    return group;
+  } catch (error) {
+    throw new Error();
+  }
+};
+
+export const createNewGroup = async (groupData: Omit<GroupInterface, 'id'>) => {
   try {
     const group = await Group.create(groupData);
     return group;
