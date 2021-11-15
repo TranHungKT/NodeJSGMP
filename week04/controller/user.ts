@@ -6,13 +6,13 @@ import {
   findAllUser,
   findAllUserByLogin,
   updateUserByLogin,
-  createNewUser,
+  createNewUserData,
   deleteUserById,
   getLimitUser,
   findAllUserById,
 } from '../services/UserServices';
 
-export const getUsersController = async (
+export const getUsers = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -25,7 +25,7 @@ export const getUsersController = async (
   }
 };
 
-export const getUserByIdController = async (
+export const getUserById = async (
   req: Request,
   res: Response,
   next: NextFunction,
@@ -44,7 +44,7 @@ export const getUserByIdController = async (
   }
 };
 
-export const createNewUserController = async (
+export const createNewUser = async (
   req: Request<{}, {}, UserInterface>,
   res: Response,
   next: NextFunction,
@@ -58,7 +58,7 @@ export const createNewUserController = async (
       return next('Invalid login');
     }
 
-    await createNewUser(req.body);
+    await createNewUserData(req.body);
 
     return res.send('Success');
   } catch (error: any) {
@@ -66,7 +66,7 @@ export const createNewUserController = async (
   }
 };
 
-export const editUserController = async (
+export const editUser = async (
   req: Request<{id: string}, {}, Omit<UserInterface, 'id'>>,
   res: Response,
   next: NextFunction,
@@ -86,7 +86,7 @@ export const editUserController = async (
   }
 };
 
-export const deleteUserController = async (
+export const deleteUser = async (
   req: Request<{id: string}, {}, {}>,
   res: Response,
   next: NextFunction,
@@ -100,7 +100,7 @@ export const deleteUserController = async (
   return res.send('Success');
 };
 
-export const getLimitedUserController = async (
+export const getLimitedUser = async (
   req: Request<{}, {}, {}, {loginSubstring: string; limit: string}>,
   res: Response,
   next: NextFunction,
