@@ -38,7 +38,7 @@ export const findAllUserById = async (id: string) => {
   }
 };
 
-export const createNewUser = async (userData: UserInterface) => {
+export const createNewUserData = async (userData: UserInterface) => {
   try {
     const user = await User.create(userData);
     return user;
