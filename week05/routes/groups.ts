@@ -17,12 +17,12 @@ router.get('/groups', logMiddleware, getGroups);
 
 router.get('/groups/:id', logMiddleware, getGroupById);
 
-router.post('/groups', createNewGroupById);
+router.post('/groups', logMiddleware, createNewGroupById);
 
-router.put('/groups/:id', editGroupById);
+router.put('/groups/:id', logMiddleware, editGroupById);
 
-router.delete('/groups/:id', deleteGroup);
+router.delete('/groups/:id', logMiddleware, deleteGroup);
 
-router.post('/groups/:id', addUserToGroups);
+router.post('/groups/:id', logMiddleware, addUserToGroups);
 
 export default router;
