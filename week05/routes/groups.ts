@@ -9,11 +9,13 @@ import {
   addUserToGroups,
 } from '../controller/group';
 
+import {logMiddleware} from '../middleware';
+
 const router = Router();
 
-router.get('/groups', getGroups);
+router.get('/groups', logMiddleware, getGroups);
 
-router.get('/groups/:id', getGroupById);
+router.get('/groups/:id', logMiddleware, getGroupById);
 
 router.post('/groups', createNewGroupById);
 

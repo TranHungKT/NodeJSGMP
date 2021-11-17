@@ -4,10 +4,8 @@ import {GroupUserModel} from '../models/GroupUser';
 export const findAllGroup = async () => {
   try {
     const groups = await Group.findAll();
-    console.log('LOLO');
     return groups;
   } catch (error) {
-    console.log('CAC', error);
     throw new Error();
   }
 };
