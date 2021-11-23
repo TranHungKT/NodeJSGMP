@@ -1,0 +1,79 @@
+2021-11-23 20:56:26:5626 [31merror[39m: [31mUnauthorizedError[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:9:13[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3[39m
+[31m    at Generator.next (<anonymous>) {[39m
+[31m  statusCode: 401[39m
+[31m}[39m
+2021-11-23 20:57:40:5740 [31merror[39m: [31mUnauthorizedError[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:9:13[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3[39m
+[31m    at Generator.next (<anonymous>) {[39m
+[31m  statusCode: 401[39m
+[31m}[39m
+2021-11-23 21:06:37:637 [31merror[39m: [31mInvalidTokenError[39m
+[31m    at decodeToken (D:\Learning\NodeJSGMP\week06\helpers\jwtToken.ts:14:11)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:12:30[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3 {[39m
+[31m  statusCode: 403[39m
+[31m}[39m
+2021-11-23 21:07:03:73 [31merror[39m: [31mInvalidTokenError[39m
+[31m    at decodeToken (D:\Learning\NodeJSGMP\week06\helpers\jwtToken.ts:14:11)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:12:30[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3 {[39m
+[31m  statusCode: 403[39m
+[31m}[39m
+2021-11-23 21:11:06:116 [31merror[39m: [31mInvalidTokenError[39m
+[31m    at decodeToken (D:\Learning\NodeJSGMP\week06\helpers\jwtToken.ts:14:11)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:12:30[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3 {[39m
+[31m  statusCode: 403[39m
+[31m}[39m
+2021-11-23 21:11:08:118 [31merror[39m: [31mInvalidTokenError[39m
+[31m    at decodeToken (D:\Learning\NodeJSGMP\week06\helpers\jwtToken.ts:14:11)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:12:30[39m
+[31m    at Generator.next (<anonymous>)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:8:71[39m
+[31m    at new Promise (<anonymous>)[39m
+[31m    at __awaiter (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:12)[39m
+[31m    at exports.default (D:\Learning\NodeJSGMP\week06\middleware\verifyTokenMiddleware.ts:4:74)[39m
+[31m    at Layer.handle [as handle_request] (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\layer.js:95:5)[39m
+[31m    at next (D:\Learning\NodeJSGMP\week06\node_modules\express\lib\router\route.js:137:13)[39m
+[31m    at D:\Learning\NodeJSGMP\week06\middleware\logMiddleware.ts:9:3 {[39m
+[31m  statusCode: 403[39m
+[31m}[39m
+2021-11-23 21:11:43:1143 [31merror[39m: [31mInvalid user[39m

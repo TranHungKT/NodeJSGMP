@@ -2,6 +2,7 @@ import express, {Request, Response, NextFunction} from 'express';
 import routes from './routes';
 import './configs/initDB';
 import Logger from './logger';
+import {CustomError} from './helpers';
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
@@ -10,6 +11,10 @@ app.use(routes);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   Logger.error(err);
+  if (err instanceof CustomError) {
+    return res.status(err.statusCode).send({error: err.serializeErrors()});
+  }
+
   return res.status(500).send({
     error: [
       {

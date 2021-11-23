@@ -104,3 +104,16 @@ export const getLimitUser = async (loginSubstring: string, limit: string) => {
     throw new Error();
   }
 };
+
+export const getUserByLogin = async (login: string) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        login: login,
+      },
+    });
+    return user;
+  } catch (error) {
+    throw new Error();
+  }
+};
