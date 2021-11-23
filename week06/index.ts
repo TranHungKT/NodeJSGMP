@@ -3,10 +3,12 @@ import routes from './routes';
 import './configs/initDB';
 import Logger from './logger';
 import {CustomError} from './helpers';
+import cors from 'cors';
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.json());
 
+app.use(express.json());
+app.use(cors());
 app.use(routes);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
