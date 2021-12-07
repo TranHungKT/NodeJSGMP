@@ -22,7 +22,7 @@ export interface UserInterface {
   login: string;
   password: string;
   age: number;
-  isDeleted: boolean;
+  isDeleted: number;
 }
 
 export class User extends Model {}

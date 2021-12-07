@@ -9,30 +9,20 @@ import {
   addUserToGroups,
 } from '../controller/group';
 
-import {logMiddleware, verifyTokenMiddleware} from '../middleware';
+import {logMiddleware} from '../middleware';
 
 const router = Router();
 
-router.get('/groups', logMiddleware, verifyTokenMiddleware, getGroups);
+router.get('/groups', logMiddleware, getGroups);
 
-router.get('/groups/:id', logMiddleware, verifyTokenMiddleware, getGroupById);
+router.get('/groups/:id', logMiddleware, getGroupById);
 
-router.post(
-  '/groups',
-  logMiddleware,
-  verifyTokenMiddleware,
-  createNewGroupById,
-);
+router.post('/groups', logMiddleware, createNewGroupById);
 
-router.put('/groups/:id', logMiddleware, verifyTokenMiddleware, editGroupById);
+router.put('/groups/:id', logMiddleware, editGroupById);
 
-router.delete('/groups/:id', logMiddleware, verifyTokenMiddleware, deleteGroup);
+router.delete('/groups/:id', logMiddleware, deleteGroup);
 
-router.post(
-  '/groups/:id',
-  logMiddleware,
-  verifyTokenMiddleware,
-  addUserToGroups,
-);
+router.post('/groups/:id', logMiddleware, addUserToGroups);
 
 export default router;
