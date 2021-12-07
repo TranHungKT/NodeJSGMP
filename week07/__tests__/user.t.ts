@@ -3,6 +3,7 @@ import {
   requestGetUser,
   requestGetUserById,
   requestUpdateUser,
+  requestDeleteUser,
 } from '../request';
 
 test('get user', async () => {
@@ -35,6 +36,12 @@ test('update new user', async () => {
     age: 22,
     isDeleted: 0,
   });
+
+  expect(res.data).toEqual('Success');
+});
+
+test('delete user', async () => {
+  const res = await requestDeleteUser('23');
 
   expect(res.data).toEqual('Success');
 });
